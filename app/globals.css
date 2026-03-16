@@ -1,2 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+	--color-black: #121623;
+	--color-white: #f2f5f9;
+	--color-extra-white: #ffffff;
+	--color-blue: #506ef1;
+	--color-gray-light: #ededed;
+	--color-gray-dark: #727272;
+}
+@variant dark (&:where(.dark, .dark *));
