@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import ProjectsList from "./components/ProjectsList";
 gsap.registerPlugin(SplitText);
 function Page() {
 	const container = useRef();
@@ -49,28 +50,33 @@ function Page() {
 		{ scope: container },
 	);
 	return (
-		<main
-			ref={container}
-			className=" flex flex-col items-center text-center h-[100vh] pt-12"
-		>
-			<HeroHeadings />
-			<Badge text="Faculty of Computers & AI • Sadat City University" />
-			<section className="mt-4">
-				<h2 className="text-lg font-medium text-gray-dark dark:text-gray-light">
-					Crafting high-performance web experiences with
-					<span className="text-blue font-bold"> React</span>,
-					<span className="text-blue font-bold">Next.js</span>, and
-					<span className="text-blue font-bold"> GSAP</span>.
-				</h2>
+		<main>
+			<section
+				ref={container}
+				className=" flex flex-col items-center text-center  pt-8 "
+			>
+				<HeroHeadings />
+				<Badge text="Faculty of Computers & AI • Sadat City University" />
+				<section className="mt-4">
+					<h2 className="text-lg font-medium text-gray-dark dark:text-gray-light">
+						Crafting high-performance web experiences with
+						<span className="text-blue font-bold"> React</span>,
+						<span className="text-blue font-bold">Next.js</span>, and
+						<span className="text-blue font-bold"> GSAP</span>.
+					</h2>
+				</section>
+				<HeroImage />
+				<section className="mt-8 flex items-center justify-between gap-4 mb-8">
+					<button className="flex items-center justify-between gap-2 rounded-2xl bg-blue px-6 py-3 text-white transition-transform duration-300 hover:scale-105  cursor-pointer">
+						View My Work <FaLongArrowAltRight />
+					</button>
+					<button className="flex items-center justify-between rounded-2xl bg-extra-white dark:bg-[#21283a] px-6 py-3 text-dark dark:text-white  transition-transform duration-300 hover:scale-105  cursor-pointer">
+						Resume
+					</button>
+				</section>
 			</section>
-			<HeroImage />
-			<section className="mt-8 flex items-center justify-between gap-4 mb-8">
-				<button className="flex items-center justify-between gap-2 rounded-2xl bg-blue px-6 py-3 text-white transition-transform duration-300 hover:scale-105  cursor-pointer">
-					View My Work <FaLongArrowAltRight />
-				</button>
-				<button className="flex items-center justify-between rounded-2xl bg-extra-white dark:bg-[#21283a] px-6 py-3 text-dark dark:text-white  transition-transform duration-300 hover:scale-105  cursor-pointer">
-					Resume
-				</button>
+			<section className="my-12">
+				<ProjectsList />
 			</section>
 		</main>
 	);
