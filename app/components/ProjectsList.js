@@ -52,10 +52,10 @@ export default function ProjectsList() {
 	return (
 		<section
 			ref={triggerRef}
-			className="bg-white dark:bg-black min-h-screen overflow-hidden my-12"
+			className="bg-white dark:bg-black min-h-screen overflow-hidden "
 		>
 			<div className="flex flex-col justify-center py-8 ">
-				<div className="px-12 mb-8 flex flex-col items-center">
+				<div className="px-12 mb-32 flex flex-col items-center">
 					<h2 className="text-4xl font-bold text-black dark:text-white">
 						Featured Work
 					</h2>

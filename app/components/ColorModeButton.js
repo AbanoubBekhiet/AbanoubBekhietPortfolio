@@ -22,7 +22,7 @@ function ColorModeButton() {
 
 	return (
 		<button
-			className="fixed top-10 right-10 p-2 rounded-2xl bg-blue text-extra-white cursor-pointer hover:opacity-90 transition-all"
+			className="fixed top-5 right-5 p-2 rounded-2xl bg-blue text-extra-white cursor-pointer hover:opacity-90 transition-all z-20"
 			onClick={toggleTheme}
 			aria-label="Toggle Dark Mode"
 		>

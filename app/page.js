@@ -8,11 +8,24 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import ProjectsList from "./components/ProjectsList";
-gsap.registerPlugin(SplitText);
+import SkillsList from "./components/SkillsList";
+import ExperienceList from "./components/ExperienceList";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+
+gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 function Page() {
-	const container = useRef();
+	const mainRef = useRef();
+	const smootherRef = useRef();
 	useGSAP(
 		() => {
+			smootherRef.current = ScrollSmoother.create({
+				wrapper: "#wrapper",
+				content: "#content",
+				smooth: 1,
+				effects: true,
+			});
+
 			const split = new SplitText(".split-text", {
 				type: "lines, words, chars",
 				linesClass: "overflow-hidden",
@@ -47,36 +60,43 @@ function Page() {
 					"-=0.2",
 				);
 		},
-		{ scope: container },
+		{ scope: mainRef },
 	);
 	return (
-		<main>
-			<section
-				ref={container}
-				className=" flex flex-col items-center text-center  pt-8 "
-			>
-				<HeroHeadings />
-				<Badge text="Faculty of Computers & AI • Sadat City University" />
-				<section className="mt-4">
-					<h2 className="text-lg font-medium text-gray-dark dark:text-gray-light">
-						Crafting high-performance web experiences with
-						<span className="text-blue font-bold"> React</span>,
-						<span className="text-blue font-bold">Next.js</span>, and
-						<span className="text-blue font-bold"> GSAP</span>.
-					</h2>
+		<main id="wrapper" ref={mainRef}>
+			<section id="content">
+				<section
+					className=" flex flex-col items-center text-center  pt-8 "
+				>
+					<HeroHeadings />
+					<Badge text="Faculty of Computers & AI • Sadat City University" />
+					<section className="mt-4">
+						<h2 className="text-lg font-medium text-gray-dark dark:text-gray-light">
+							Crafting high-performance web experiences with
+							<span className="text-blue font-bold"> React</span>,
+							<span className="text-blue font-bold">Next.js</span>, and
+							<span className="text-blue font-bold"> GSAP</span>.
+						</h2>
+					</section>
+					<HeroImage />
+					<section className="mt-8 flex items-center justify-between gap-4 mb-8">
+						<button className="flex items-center justify-between gap-2 rounded-2xl bg-blue px-6 py-3 text-white transition-transform duration-300 hover:scale-105  cursor-pointer">
+							View My Work <FaLongArrowAltRight />
+						</button>
+						<button className="flex items-center justify-between rounded-2xl bg-extra-white dark:bg-[#21283a] px-6 py-3 text-dark dark:text-white  transition-transform duration-300 hover:scale-105  cursor-pointer">
+							Resume
+						</button>
+					</section>
 				</section>
-				<HeroImage />
-				<section className="mt-8 flex items-center justify-between gap-4 mb-8">
-					<button className="flex items-center justify-between gap-2 rounded-2xl bg-blue px-6 py-3 text-white transition-transform duration-300 hover:scale-105  cursor-pointer">
-						View My Work <FaLongArrowAltRight />
-					</button>
-					<button className="flex items-center justify-between rounded-2xl bg-extra-white dark:bg-[#21283a] px-6 py-3 text-dark dark:text-white  transition-transform duration-300 hover:scale-105  cursor-pointer">
-						Resume
-					</button>
+				<section>
+					<ProjectsList />
 				</section>
-			</section>
-			<section className="my-12">
-				<ProjectsList />
+				<section className="p-8 bg-gray-light dark:bg-black ">
+					<SkillsList />
+				</section>
+				<section className="p-8 bg-white dark:bg-black ">
+					<ExperienceList />
+				</section>
 			</section>
 		</main>
 	);
