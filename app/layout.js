@@ -2,7 +2,7 @@ import { ThemeProvider } from "next-themes";
 import ColorModeButton from "./components/ColorModeButton";
 import "./globals.css";
 import { Bounce, ToastContainer } from "react-toastify";
-
+import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
 	title: "abanoub bekhiet ",
 	description:
@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
 					theme="light"
 					transition={Bounce}
 				/>
+				<Analytics />
 			</body>
 		</html>
 	);
