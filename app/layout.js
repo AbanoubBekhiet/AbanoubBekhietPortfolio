@@ -7,6 +7,9 @@ export const metadata = {
 	title: "abanoub bekhiet ",
 	description:
 		"hi, i am abanoub bekhiet, a software engineer and a web developer, this is my portfolio website, you can find all my projects and experience here",
+	verification: {
+		google: "tQMqyEQB3Q73XwZHx9spm4bfQiUcioaOaNnsJiuzKHA",
+	},
 };
 
 export default function RootLayout({ children }) {
