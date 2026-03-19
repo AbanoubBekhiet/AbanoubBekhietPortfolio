@@ -37,7 +37,7 @@ export default function ProjectsList() {
 					trigger: triggerElement,
 					pin: true,
 					start: "top top",
-					scrub: 2,
+					scrub: 0.5,
 					end: () => `+=${horizontalDistance}`,
 					invalidateOnRefresh: true,
 				},
