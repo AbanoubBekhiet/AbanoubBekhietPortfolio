@@ -11,16 +11,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import ProjectCard from "./ProjectCard";
 
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger);
-}
-
 export default function ProjectsList() {
 	const scrollRef = useRef(null);
 	const triggerRef = useRef(null);
 
 	useGSAP(
 		() => {
+			gsap.registerPlugin(ScrollTrigger);
+			ScrollTrigger.config({ ignoreMobileResize: true });
+			ScrollTrigger.normalizeScroll({
+				allowNestedScroll: true,
+				lockAxis: false,
+			});
 			const pinElement = scrollRef.current;
 			const triggerElement = triggerRef.current;
 
