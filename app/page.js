@@ -12,6 +12,7 @@ import SkillsList from "./components/SkillsList";
 import ExperienceList from "./components/ExperienceList";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import Contact from "./components/Contact";
 
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 function Page() {
@@ -22,7 +23,7 @@ function Page() {
 			smootherRef.current = ScrollSmoother.create({
 				wrapper: "#wrapper",
 				content: "#content",
-				smooth: 1,
+				smooth: 3,
 				effects: true,
 			});
 
@@ -97,7 +98,11 @@ function Page() {
 				<section className="p-8 bg-white dark:bg-black ">
 					<ExperienceList />
 				</section>
+				<section className="mt-4 bg-white dark:bg-black ">
+					<Contact />
+				</section>
 			</section>
+			
 		</main>
 	);
 }

@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import ColorModeButton from "./components/ColorModeButton";
 import "./globals.css";
+import { Bounce, ToastContainer } from "react-toastify";
 
 export const metadata = {
 	title: "abanoub bekhiet ",
@@ -16,6 +17,19 @@ export default function RootLayout({ children }) {
 					<ColorModeButton />
 					{children}
 				</ThemeProvider>
+				<ToastContainer
+					position="top-right"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick={false}
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="light"
+					transition={Bounce}
+				/>
 			</body>
 		</html>
 	);
