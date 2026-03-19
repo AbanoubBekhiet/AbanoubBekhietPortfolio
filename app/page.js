@@ -20,7 +20,7 @@ gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 function Page() {
 	const mainRef = useRef();
 	const smootherRef = useRef();
-	const terminalRef = useRef(); 
+	const terminalRef = useRef();
 	useGSAP(
 		() => {
 			smootherRef.current = ScrollSmoother.create({
@@ -64,7 +64,6 @@ function Page() {
 					"-=0.2",
 				);
 
-
 			const xTo = gsap.quickTo(terminalRef.current, "x", {
 				duration: 0.4,
 				ease: "power3",
@@ -94,7 +93,7 @@ function Page() {
 		<main id="wrapper" ref={mainRef}>
 			<div
 				ref={terminalRef}
-				className="fixed top-0 left-0 pointer-events-none z-[9999] text-blue opacity-70"
+				className="hidden sm:flex fixed top-0 left-0 pointer-events-none z-[9999] text-blue opacity-70 "
 			>
 				<IoTerminalOutline size={40} />
 			</div>
